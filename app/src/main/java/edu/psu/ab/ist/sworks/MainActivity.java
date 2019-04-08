@@ -9,14 +9,13 @@ Rev: development build 1
 */
 package edu.psu.ab.ist.sworks;
 
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
+import edu.psu.ab.ist.sworks.mission.MissionStatus;
 
 public class MainActivity extends AppCompatActivity {
 

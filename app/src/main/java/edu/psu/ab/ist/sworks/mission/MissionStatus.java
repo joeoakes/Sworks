@@ -8,7 +8,7 @@ Last Date Changed:
 Rev: development build 1
 */
 
-package edu.psu.ab.ist.sworks;
+package edu.psu.ab.ist.sworks.mission;
 
 import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
