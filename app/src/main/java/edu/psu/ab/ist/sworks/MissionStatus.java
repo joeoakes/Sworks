@@ -22,7 +22,7 @@ public class MissionStatus {
      * Get the Phone Battery Level information
      *
      * @param context   The activity context
-     * @param lowLevel  Lower power level threshhold
+     * @param lowLevel  Lower power level threshold
      * @return          Current battery power level for phone
      * @throws          MissionStatusException
      * @author          Joe Oakes
