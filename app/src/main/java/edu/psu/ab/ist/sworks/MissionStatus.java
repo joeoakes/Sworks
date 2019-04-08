@@ -18,6 +18,17 @@ import java.util.Objects;
 
 public class MissionStatus {
 
+    /**
+     * Get the Phone Battery Level information
+     *
+     * @param context   The activity context
+     * @param lowLevel  Lower power level threshhold
+     * @return          Current battery power level for phone
+     * @throws          MissionStatusException
+     * @author          Joe Oakes
+     * @version         1.0
+     * @since           2019-04-08
+     */
     public static int getBatteryLevel(Context context, int lowLevel) throws MissionStatusException{
             IntentFilter ifilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
             Intent batteryStatus = context.registerReceiver(null, ifilter);
@@ -31,6 +42,17 @@ public class MissionStatus {
             }
     }
 
+    /**
+     * Try and connect to the Wifi device
+     *
+     * @param context   The activity context
+     * @param ssid      Wifi Access Point to connect too
+     * @return          Connected true or false
+     * @throws          MissionStatusException
+     * @author          Joe Oakes
+     * @version         1.0
+     * @since           2019-04-08
+     */
     public static Boolean wifiConnected(Context context, String ssid) throws MissionStatusException {
         WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
         WifiInfo wifiInfo = wifiManager.getConnectionInfo();
@@ -43,6 +65,16 @@ public class MissionStatus {
         }
     }
 
+    /**
+     * Try and connect to the mobile network
+     *
+     * @param context   The activity context
+     * @return          Connected true or false
+     * @throws          MissionStatusException
+     * @author          Joe Oakes
+     * @version         1.0
+     * @since           2019-04-08
+     */
     public static Boolean mobileConnected(Context context) throws MissionStatusException{
         ConnectivityManager cm = (ConnectivityManager) Objects.requireNonNull(context).getSystemService(Context.CONNECTIVITY_SERVICE);
         if (cm == null)
@@ -53,6 +85,16 @@ public class MissionStatus {
         return (activeNetwork != null);
     }
 
+    /**
+     * Try and connect to the mobile network and get speed
+     *
+     * @param context   The activity context
+     * @return          Connected high speed true or false
+     * @throws          MissionStatusException
+     * @author          Joe Oakes
+     * @version         1.0
+     * @since           2019-04-08
+     */
     public static Boolean mobileConnectedSpeed(Context context) throws MissionStatusException{
         ConnectivityManager cm = (ConnectivityManager) Objects.requireNonNull(context).getSystemService(Context.CONNECTIVITY_SERVICE);
         if (cm == null)
@@ -69,11 +111,23 @@ public class MissionStatus {
         return (capabilities != null && capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI));
     }
 
+    /**
+     * Try and connect to the bluetooth device
+     *
+     * @param context   The activity context
+     * @param mac       The bluetooth media access code
+     * @return          Connected true or false
+     * @throws          MissionStatusException
+     * @author          Joe Oakes
+     * @version         1.0
+     * @since           2019-04-08
+     */
     public static Boolean bluetoothConnected(Context context, String mac)throws MissionStatusException{
         BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
          if (bluetoothAdapter == null) {
              throw new MissionStatusException("Device does not support Bluetooth");
          }
+         //TODO: add bluetooth mac checking
          return true;
     }
 
