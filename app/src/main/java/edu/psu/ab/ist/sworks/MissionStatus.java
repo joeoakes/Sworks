@@ -6,6 +6,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
+import android.net.Network;
+import android.net.NetworkCapabilities;
 import android.net.NetworkInfo;
 import android.net.wifi.SupplicantState;
 import android.net.wifi.WifiInfo;
@@ -52,8 +54,19 @@ public class MissionStatus {
     }
 
     public static Boolean mobileConnectedSpeed(Context context) throws MissionStatusException{
-        return true;
-        //throw new MissionStatusException("Not connected to Wifi PSU SSID");
+        ConnectivityManager cm = (ConnectivityManager) Objects.requireNonNull(context).getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (cm == null)
+        {
+            throw new MissionStatusException("Connection failure with Mobile Network");
+        }
+        NetworkInfo activeNetwork = Objects.requireNonNull(cm).getActiveNetworkInfo();
+        Network network = cm.getActiveNetwork();
+        if (network == null)
+        {
+            throw new MissionStatusException("Active Connection failure with Mobile Network");
+        }
+        NetworkCapabilities capabilities = cm.getNetworkCapabilities(network);
+        return (capabilities != null && capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI));
     }
 
     public static Boolean bluetoothConnected(Context context, String mac)throws MissionStatusException{
