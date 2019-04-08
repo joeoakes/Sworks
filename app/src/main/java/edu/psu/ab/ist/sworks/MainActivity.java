@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         try {
             int level = MissionStatus.getBatteryLevel(getApplicationContext(), 10);
             boolean wifi = MissionStatus.wifiConnected(getApplicationContext(), "PSU");
+            boolean mobile = MissionStatus.mobileConnected(getApplicationContext());
         }catch(Exception e)
         {
 

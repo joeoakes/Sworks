@@ -1,13 +1,18 @@
 package edu.psu.ab.ist.sworks;
 
+import android.bluetooth.BluetoothAdapter;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.wifi.SupplicantState;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.BatteryManager;
+
+import java.util.Objects;
 
 public class MissionStatus {
 
@@ -36,16 +41,27 @@ public class MissionStatus {
         }
     }
 
-    public Boolean mobileConnected() throws MissionStatusException{
-        return true;
+    public static Boolean mobileConnected(Context context) throws MissionStatusException{
+        ConnectivityManager cm = (ConnectivityManager) Objects.requireNonNull(context).getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (cm == null)
+        {
+            throw new MissionStatusException("Connection failure with Mobile Network");
+        }
+        NetworkInfo activeNetwork = Objects.requireNonNull(cm).getActiveNetworkInfo();
+        return (activeNetwork != null);
     }
 
-    public Boolean mobileConnectedSpeed() throws MissionStatusException{
+    public static Boolean mobileConnectedSpeed(Context context) throws MissionStatusException{
         return true;
+        //throw new MissionStatusException("Not connected to Wifi PSU SSID");
     }
 
-    public Boolean bluetoothConneted()throws MissionStatusException{
-        return true;
+    public static Boolean bluetoothConnected(Context context, String mac)throws MissionStatusException{
+        BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+         if (bluetoothAdapter == null) {
+             throw new MissionStatusException("Device does not support Bluetooth");
+         }
+         return true;
     }
 
 }
