@@ -11,40 +11,40 @@ import android.os.BatteryManager;
 
 public class MissionStatus {
 
-    public static int getBatteryLevel(Context context) throws CustomException{
+    public static int getBatteryLevel(Context context, int lowLevel) throws MissionStatusException{
             IntentFilter ifilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
             Intent batteryStatus = context.registerReceiver(null, ifilter);
             int level = batteryStatus.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
-            if (level > 10) {
+            if (level > lowLevel) {
                 return level;
             }
             else
             {
-                throw new CustomException("Battery Level too Low");
+                throw new MissionStatusException("Battery Level too Low");
             }
     }
 
-    public static Boolean wifiConnected(Context context) throws CustomException {
+    public static Boolean wifiConnected(Context context, String ssid) throws MissionStatusException {
         WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
         WifiInfo wifiInfo = wifiManager.getConnectionInfo();
-        if ((wifiInfo.getSSID() == "PSU") && (wifiInfo.getSupplicantState() == SupplicantState.COMPLETED)) {
-            return true;
+        if (wifiInfo.getSSID() != ssid) {
+            throw new MissionStatusException("Not connected to Wifi PSU SSID");
         }
         else
         {
-            throw new CustomException("Not connected to Wifi PSU SSID");
+            return (wifiInfo.getSupplicantState() == SupplicantState.COMPLETED);
         }
     }
 
-    public Boolean mobileConnected(){
+    public Boolean mobileConnected() throws MissionStatusException{
         return true;
     }
 
-    public Boolean mobileConnectedHighSpeed(){
+    public Boolean mobileConnectedSpeed() throws MissionStatusException{
         return true;
     }
 
-    public Boolean bluetoothConneted(){
+    public Boolean bluetoothConneted()throws MissionStatusException{
         return true;
     }
 

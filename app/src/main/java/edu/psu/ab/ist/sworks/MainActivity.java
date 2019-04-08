@@ -39,8 +39,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         try {
-            int level = MissionStatus.getBatteryLevel(getApplicationContext());
-            boolean wifi = MissionStatus.wifiConnected(getApplicationContext());
+            int level = MissionStatus.getBatteryLevel(getApplicationContext(), 10);
+            boolean wifi = MissionStatus.wifiConnected(getApplicationContext(), "PSU");
         }catch(Exception e)
         {
 
