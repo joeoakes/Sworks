@@ -11,7 +11,6 @@ Rev: development build 1
 package edu.psu.ab.ist.sworks;
 
 import android.bluetooth.BluetoothAdapter;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -23,8 +22,8 @@ import android.net.wifi.SupplicantState;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.BatteryManager;
-
 import java.util.Objects;
+import edu.psu.ab.ist.sworks.exceptions.MissionStatusException;
 
 public class MissionStatus {
 
@@ -34,7 +33,7 @@ public class MissionStatus {
      * @param context   The activity context
      * @param lowLevel  Lower power level threshold
      * @return          Current battery power level for phone
-     * @throws          MissionStatusException
+     * @throws MissionStatusException
      * @author          Joe Oakes
      * @version         1.0
      * @since           2019-04-08
