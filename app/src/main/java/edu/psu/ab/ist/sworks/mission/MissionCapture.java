@@ -166,7 +166,65 @@ public class MissionCapture {
         //TODO save Gyroscope to DB
     }
 
+    /**
+     * Get Humidity Data from the Phone sensor
+     *
+     * @param
+     * @param
+     * @return          Humidity POJO
+     * @throws          MissionCaptureException
+     * @author          Joe Oakes
+     * @version         1.0
+     * @since           2019-04-08
+     */
+    public Humidity getHumidityData() throws MissionCaptureException {
+        return new Humidity();
+    }
 
+    /**
+     * Save the Humidity Data from the Phone sensor
+     *
+     * @param           Humidity POJO
+     * @param
+     * @return
+     * @throws          MissionCaptureException
+     * @author          Joe Oakes
+     * @version         1.0
+     * @since           2019-04-08
+     */
+    public void saveHumidityData(Humidity humidity) throws MissionCaptureException {
+        //TODO save Humidity to DB
+    }
+
+    /**
+     * Get Magnetometer Data from the Phone sensor
+     *
+     * @param
+     * @param
+     * @return          Magnetometer POJO
+     * @throws          MissionCaptureException
+     * @author          Joe Oakes
+     * @version         1.0
+     * @since           2019-04-08
+     */
+    public Magnetometer getMagnetometerData() throws MissionCaptureException {
+        return new Magnetometer();
+    }
+
+    /**
+     * Save the Magnetometer Data from the Phone sensor
+     *
+     * @param           Magnetometer POJO
+     * @param
+     * @return
+     * @throws          MissionCaptureException
+     * @author          Joe Oakes
+     * @version         1.0
+     * @since           2019-04-08
+     */
+    public void saveMagnetometerData(Magnetometer magnetometer) throws MissionCaptureException {
+        //TODO save Humidity to DB
+    }
 
 
 }
