@@ -1,4 +1,4 @@
-package edu.psu.ab.ist.sworks;
+/*package edu.psu.ab.ist.sworks;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -11,3 +11,4 @@ import edu.psu.ab.ist.sworks.mission.MissionCapture;
 @RunWith(AndroidJUnit4.class)
 public class MissionCaptureUnitTests {
 }
+*/

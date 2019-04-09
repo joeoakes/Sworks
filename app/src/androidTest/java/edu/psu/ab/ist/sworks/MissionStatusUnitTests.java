@@ -31,7 +31,7 @@ public class MissionStatusUnitTests {
     public void getBatteryLevelUnitTest(){
         Context appContext = InstrumentationRegistry.getTargetContext();
         try {
-            assertTrue(MissionStatus.getBatteryLevel(appContext.getApplicationContext(), 10) > 10);
+            assertTrue(MissionStatus.getBatteryLevel(appContext, 10) > 10);
         } catch (Exception e) {
             Log.e("Battery Level Unit Test", e.getMessage());
         }
@@ -41,7 +41,7 @@ public class MissionStatusUnitTests {
     public void wifiConnectedUnitTestTrue() {
         Context appContext = InstrumentationRegistry.getTargetContext();
         try {
-            assertTrue(MissionStatus.wifiConnected(appContext.getApplicationContext(), "PSU"));
+            assertTrue(MissionStatus.wifiConnected(appContext, "PSU"));
         } catch (Exception e) {
             Log.e("Wifi Unit Test", e.getMessage());
         }
@@ -51,7 +51,7 @@ public class MissionStatusUnitTests {
     public void mobileConnectedUnitTest(){
         Context appContext = InstrumentationRegistry.getTargetContext();
         try {
-            assertTrue(MissionStatus.mobileConnected(appContext.getApplicationContext()));
+            assertTrue(MissionStatus.mobileConnected(appContext));
         } catch (Exception e) {
             Log.e("Mobile Connected Unit Test", e.getMessage());
         }
@@ -61,7 +61,7 @@ public class MissionStatusUnitTests {
     public void mobileConnectedSpeedUnitTest(){
         Context appContext = InstrumentationRegistry.getTargetContext();
         try {
-            assertTrue(MissionStatus.mobileConnectedSpeed(appContext.getApplicationContext()));
+            assertTrue(MissionStatus.mobileConnectedSpeed(appContext));
         } catch (Exception e) {
             Log.e("mobile Connected Speed Unit Test", e.getMessage());
         }
@@ -71,7 +71,7 @@ public class MissionStatusUnitTests {
     public void bluetoothConnectedSpeedUnitTest(){
         Context appContext = InstrumentationRegistry.getTargetContext();
         try {
-            assertTrue(MissionStatus.bluetoothConnected(appContext.getApplicationContext(), "MAC"));
+            assertTrue(MissionStatus.bluetoothConnected(appContext, "MAC"));
         } catch (Exception e) {
             Log.e("bluetooth Unit Test", e.getMessage());
         }

@@ -1,4 +1,4 @@
-package edu.psu.ab.ist.sworks;
+/*package edu.psu.ab.ist.sworks;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -14,6 +14,7 @@ import static org.junit.Assert.*;
  *
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
+/*
 @RunWith(AndroidJUnit4.class)
 public class ExampleInstrumentedTest {
     @Test
@@ -24,3 +25,4 @@ public class ExampleInstrumentedTest {
         assertEquals("edu.psu.ab.ist.sworks", appContext.getPackageName());
     }
 }
+*/
