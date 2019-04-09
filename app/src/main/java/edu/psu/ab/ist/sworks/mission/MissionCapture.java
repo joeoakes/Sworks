@@ -76,6 +76,96 @@ public class MissionCapture {
         //TODO save AmbientLight to DB
     }
 
+    /**
+     * Get Barometer Data from the Phone sensor
+     *
+     * @param
+     * @param
+     * @return          Barometer POJO
+     * @throws          MissionCaptureException
+     * @author          Joe Oakes
+     * @version         1.0
+     * @since           2019-04-08
+     */
+    public Barometer getBarometerData() throws MissionCaptureException {
+        return new Barometer();
+    }
+
+    /**
+     * Save the Barometer Data from the Phone sensor
+     *
+     * @param           Barometer POJO
+     * @param
+     * @return
+     * @throws          MissionCaptureException
+     * @author          Joe Oakes
+     * @version         1.0
+     * @since           2019-04-08
+     */
+    public void saveBarometerData(Barometer barometer) throws MissionCaptureException {
+        //TODO saveBarometer to DB
+    }
+
+    /**
+     * Get GPS Data from the Phone sensor
+     *
+     * @param
+     * @param
+     * @return          GPS POJO
+     * @throws          MissionCaptureException
+     * @author          Joe Oakes
+     * @version         1.0
+     * @since           2019-04-08
+     */
+    public GPS getGPSData() throws MissionCaptureException {
+        return new GPS();
+    }
+
+    /**
+     * Save the GPS Data from the Phone sensor
+     *
+     * @param           GPS POJO
+     * @param
+     * @return
+     * @throws          MissionCaptureException
+     * @author          Joe Oakes
+     * @version         1.0
+     * @since           2019-04-08
+     */
+    public void saveGPSData(GPS gps) throws MissionCaptureException {
+        //TODO save GPS to DB
+    }
+
+    /**
+     * Get Gyroscope Data from the Phone sensor
+     *
+     * @param
+     * @param
+     * @return          Gyroscope POJO
+     * @throws          MissionCaptureException
+     * @author          Joe Oakes
+     * @version         1.0
+     * @since           2019-04-08
+     */
+    public Gyroscope getGyroscopeData() throws MissionCaptureException {
+        return new Gyroscope();
+    }
+
+    /**
+     * Save the Gyroscope Data from the Phone sensor
+     *
+     * @param           Gyroscope POJO
+     * @param
+     * @return
+     * @throws          MissionCaptureException
+     * @author          Joe Oakes
+     * @version         1.0
+     * @since           2019-04-08
+     */
+    public void saveGyroscopeData(Gyroscope gyroscope) throws MissionCaptureException {
+        //TODO save Gyroscope to DB
+    }
+
 
 
 
